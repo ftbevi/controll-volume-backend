@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: controll-volume-app
+    env_file:
+      - ".env"
+    volumes:
+      - ./app:/server/app
+      - ../controll-volume-resources:/server/resources
+    ports:
+      - "6600:6600"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14-bullseye
+    container_name: controll-volume-db
+    environment:
+      POSTGRES_USER: "controllvolumes"
+      POSTGRES_PASSWORD: "controllvolumes"
+      POSTGRES_DB: "controllvolumes"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../controll-volume-data:/var/lib/postgresql/data/
+
+volumes:
+  data:
