@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "control-volume"
+version = "0.1.0"
+description = "system for controle store volume"
+authors = ["Thiago Bevil"]
+readme = "README.md"
+packages = [{include = "control_volume"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.3"
+prettyconf = "^2.2.1"
+djangorestframework = "^3.14.0"
+dj-database-url = "^2.1.0"
+psycopg2 = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
