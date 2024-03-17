@@ -32,6 +32,7 @@ class TrashStationsAdmin(admin.ModelAdmin):
             {
                 "fields": [
                     "title",
+                    "quantity_max"
                 ]
             },
         ),

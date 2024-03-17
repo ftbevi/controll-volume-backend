@@ -43,7 +43,7 @@ class NotificationStatus(TextChoices):
 
 
 class Notifications(BaseModel):
-    station = models.ForeignKey(TrashStations, verbose_name="Estação de Lixo", on_delete=models.PROTECT, related_name="stations")
+    station = models.ForeignKey(TrashStations, verbose_name="Estação de Lixo", on_delete=models.PROTECT, related_name="notifications")
     checker = models.ForeignKey(User, verbose_name="Conferente", on_delete=models.PROTECT, related_name="checkers")
     status = models.IntegerField(verbose_name="Situação", choices=NotificationStatus.choices, default=NotificationStatus.CREATED)
 
